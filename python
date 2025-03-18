@@ -1,0 +1,36 @@
+""" Emily is a math teacher who enjoys teaching her students through step-by-step demonstrations. She wants to create a program that takes any given number and displays the product of its digits.
+
+
+
+Help Emily develop a recursion function that takes an integer input and outputs the digit-wise multiplication process, like 2 x 3 x 4 = 24 for the number 234.
+
+
+
+Function Specifications:
+
+int get_digits(num)
+
+int productOfDigits(num, product=1)
+
+Input format :
+The input consists of an integer n, representing the number whose digits will be multiplied.
+
+Output format :
+The output prints an integer, representing the product of digits representing the final product."""
+
+
+def get_digits(num):
+    if num == 0:
+        return []
+    return get_digits(num // 10) + [num % 10]
+
+def productOfDigits(num, product=1):
+    if num == 0:
+        return str(product)
+    
+    return productOfDigits(num // 10, product * (num % 10))
+
+if __name__ == "__main__":
+    n = int(input())
+    result = productOfDigits(n)
+    print(result)
